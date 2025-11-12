@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Finder - AI Dish Recognition</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🍳 Recipe Finder</h1>
+            <p>Upload a photo of any dish and get the recipe instantly!</p>
+        </header>
+
+        <main>
+            <div class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <svg class="upload-icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <p>Click to upload or drag and drop</p>
+                    <p class="upload-hint">PNG, JPG, or WEBP (max 4MB)</p>
+                    <input type="file" id="fileInput" accept="image/*" hidden>
+                </div>
+
+                <div class="preview-section" id="previewSection" style="display: none;">
+                    <img id="imagePreview" alt="Dish preview">
+                    <button class="btn-secondary" id="changeImageBtn">Change Image</button>
+                    <button class="btn-primary" id="analyzeBtn">Analyze Dish</button>
+                </div>
+            </div>
+
+            <div class="loading" id="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Analyzing your dish...</p>
+            </div>
+
+            <div class="result-section" id="resultSection" style="display: none;">
+                <h2>Recipe</h2>
+                <div id="recipeContent"></div>
+                <button class="btn-secondary" id="newSearchBtn">Analyze Another Dish</button>
+            </div>
+
+            <div class="error-section" id="errorSection" style="display: none;">
+                <p class="error-message" id="errorMessage"></p>
+                <button class="btn-secondary" id="retryBtn">Try Again</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>Powered by OpenAI Vision API</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
