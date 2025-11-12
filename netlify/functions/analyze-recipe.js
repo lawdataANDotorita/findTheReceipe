@@ -37,7 +37,7 @@ exports.handler = async (event, context) => {
                     content: [
                         {
                             type: "text",
-                            text: "Analyze this image of a dish and provide a detailed recipe. find and return a recipe in hebrew. Include:\n\n1. The name of the dish\n2. A list of ingredients with measurements\n3. Step-by-step cooking instructions\n4. Estimated preparation and cooking time\n5. Number of servings\n\nFormat the response clearly with headers (using ##) for each section."
+                            text: "נתח את תמונת המאכל כדי למצוא את שם המאכל והמתכון המתאים לו. אנא הצג את שם המאכל, היסטוריה קצרה שלו, והמתכון כולל רכיבים והכנה שלב אחר שלב. אנא השתמש בפורמט מתאים עם ## לחלקים השונים"
                         },
                         {
                             type: "image_url",
