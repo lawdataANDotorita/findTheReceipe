@@ -7,6 +7,7 @@ const changeImageBtn = document.getElementById('changeImageBtn');
 const analyzeBtn = document.getElementById('analyzeBtn');
 const loading = document.getElementById('loading');
 const resultSection = document.getElementById('resultSection');
+const resultImage = document.getElementById('resultImage');
 const recipeContent = document.getElementById('recipeContent');
 const errorSection = document.getElementById('errorSection');
 const errorMessage = document.getElementById('errorMessage');
@@ -58,13 +59,13 @@ function handleFileSelect(e) {
 function handleFile(file) {
     // Validate file type
     if (!file.type.startsWith('image/')) {
-        showError('Please select an image file');
+        showError('אנא בחר קובץ תמונה');
         return;
     }
 
     // Validate file size (4MB max)
     if (file.size > 4 * 1024 * 1024) {
-        showError('Image size should be less than 4MB');
+        showError('גודל התמונה צריך להיות פחות מ-4MB');
         return;
     }
 
@@ -125,7 +126,7 @@ async function analyzeImage() {
         const data = await response.json();
 
         if (!response.ok) {
-            throw new Error(data.error || 'Failed to analyze image');
+            throw new Error(data.error || 'נכשל בניתוח התמונה');
         }
 
         // Display recipe
@@ -133,7 +134,7 @@ async function analyzeImage() {
 
     } catch (error) {
         console.error('Error:', error);
-        showError(error.message || 'Failed to analyze the image. Please try again.');
+        showError(error.message || 'נכשל בניתוח התמונה. אנא נסה שוב.');
         previewSection.style.display = 'block';
     } finally {
         loading.style.display = 'none';
@@ -144,6 +145,9 @@ async function analyzeImage() {
 // Display recipe
 function displayRecipe(recipe) {
     recipeContent.innerHTML = formatRecipe(recipe);
+    // Display the uploaded image with the recipe
+    resultImage.src = imagePreview.src;
+    resultImage.style.display = 'block';
     resultSection.style.display = 'block';
 }
 
@@ -212,6 +216,7 @@ function resetUpload() {
     uploadArea.style.display = 'block';
     previewSection.style.display = 'none';
     resultSection.style.display = 'none';
+    resultImage.style.display = 'none';
     errorSection.style.display = 'none';
     loading.style.display = 'none';
 }

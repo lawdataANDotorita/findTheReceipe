@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe Finder - AI Dish Recognition</title>
+    <title>מאתר מתכונים - זיהוי מנות בבינה מלאכותית</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🍳 Recipe Finder</h1>
-            <p>Upload a photo of any dish and get the recipe instantly!</p>
+            <h1>🍳 מאתר מתכונים</h1>
+            <p>העלה תמונה של כל מנה וקבל את המתכון מיד!</p>
         </header>
 
         <main>
@@ -21,37 +21,38 @@
                         <polyline points="17 8 12 3 7 8"></polyline>
                         <line x1="12" y1="3" x2="12" y2="15"></line>
                     </svg>
-                    <p>Click to upload or drag and drop</p>
-                    <p class="upload-hint">PNG, JPG, or WEBP (max 4MB)</p>
+                    <p>לחץ להעלאה או גרור ושחרר</p>
+                    <p class="upload-hint">PNG, JPG או WEBP (מקסימום 4MB)</p>
                     <input type="file" id="fileInput" accept="image/*" hidden>
                 </div>
 
                 <div class="preview-section" id="previewSection" style="display: none;">
-                    <img id="imagePreview" alt="Dish preview">
-                    <button class="btn-secondary" id="changeImageBtn">Change Image</button>
-                    <button class="btn-primary" id="analyzeBtn">Analyze Dish</button>
+                    <img id="imagePreview" alt="תצוגה מקדימה של המנה">
+                    <button class="btn-secondary" id="changeImageBtn">שנה תמונה</button>
+                    <button class="btn-primary" id="analyzeBtn">נתח מנה</button>
                 </div>
             </div>
 
             <div class="loading" id="loading" style="display: none;">
                 <div class="spinner"></div>
-                <p>Analyzing your dish...</p>
+                <p>מנתח את המנה שלך...</p>
             </div>
 
             <div class="result-section" id="resultSection" style="display: none;">
-                <h2>Recipe</h2>
+                <img id="resultImage" alt="תמונת המנה" style="display: none;">
+                <h2>מתכון</h2>
                 <div id="recipeContent"></div>
-                <button class="btn-secondary" id="newSearchBtn">Analyze Another Dish</button>
+                <button class="btn-secondary" id="newSearchBtn">נתח מנה נוספת</button>
             </div>
 
             <div class="error-section" id="errorSection" style="display: none;">
                 <p class="error-message" id="errorMessage"></p>
-                <button class="btn-secondary" id="retryBtn">Try Again</button>
+                <button class="btn-secondary" id="retryBtn">נסה שוב</button>
             </div>
         </main>
 
         <footer>
-            <p>Powered by OpenAI Vision API</p>
+            <p>מופעל על ידי OpenAI Vision API</p>
         </footer>
     </div>
 
