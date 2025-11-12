@@ -30,7 +30,7 @@ exports.handler = async (event, context) => {
 
         // Prepare the request to OpenAI
         const requestBody = JSON.stringify({
-            model: "gpt-4o-mini",
+            model: "gpt-4.1-mini",
             messages: [
                 {
                     role: "user",
